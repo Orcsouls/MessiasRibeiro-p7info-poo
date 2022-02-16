@@ -1,1 +1,0 @@
-console.log('Atividade 2');

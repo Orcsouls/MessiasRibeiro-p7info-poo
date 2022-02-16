@@ -1,1 +1,0 @@
-console.log('Avaliação 1');
