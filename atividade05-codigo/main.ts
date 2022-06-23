@@ -1,0 +1,55 @@
+//
+//
+//
+//
+
+import {Cliente} from "./cliente"
+import {TipoCliente} from "./tipo_cliente"
+import {Produto} from "./produto"
+import {NotaFiscal} from "./nota_fiscal"
+import {ItemNotaFiscal} from "./item_nota_fiscal"
+
+//Criar uma instancia da classe Cliente 
+
+let cliente = new Cliente(1, "José Maria da Silva", 100, "200.345.987-11",TipoCliente.PESSOA_FISICA);
+console.log("=========================");
+console.log(cliente);
+console.log("=========================");
+console.log("Id=" + cliente.getid());
+console.log("Nome=" + cliente.getnome());
+console.log("Codigo=" + cliente.getcodigo());
+console.log("CnpjCpf=" + cliente.getcnpjcpf());
+console.log("TipoCliente=" + cliente.gettipo());
+
+let p1 = new Produto(1, 150, "Arroz Tio Joao", 6.00);
+let p2 = new Produto(2, 200,"Feijão Janjão", 5.00);
+let p3 = new Produto(3, 300, "Farinha da Boa", 8.00);
+
+let nf = new NotaFiscal(1, 201, cliente);
+
+let itnf1 = new ItemNotaFiscal(1, 1, 10, p1);
+let itnf2 = new ItemNotaFiscal(2, 2, 10, p2);
+let itnf3 = new ItemNotaFiscal(3, 3, 10, p3);
+
+itnf1.valorItemNotaFiscal();
+itnf2.valorItemNotaFiscal();
+itnf3.valorItemNotaFiscal();
+
+console.log("=========================");
+console.log(itnf1.getproduto().getdescricao());
+console.log(itnf2.getproduto().getdescricao());
+console.log(itnf3.getproduto().getdescricao());
+console.log("=========================");
+
+nf.adicionarItem(itnf1);
+nf.adicionarItem(itnf2);
+nf.adicionarItem(itnf3);
+
+console.log("=========================");
+console.log(nf);
+console.log("=========================");
+
+
+nf.imprimirNotaFiscal()
+nf.valorNotaFisc()
+
